@@ -15,18 +15,18 @@
             <legend>Cadastro</legend>
 
             <label for="nome">Nome completo: </label>
-            <input type="text" name="nome" id="nome" placeholder="Nome..." required>
+            <input oninput="mascara()" type="text" class="campo" name="nome" id="nome" placeholder="Nome..." required>
 
             <label for="altura">Altura: </label>
-            <input type="number" name="altura" id="altura" step="0.01" min="0.1" max="10" placeholder="Insira sua altura em m. Ex: 1.68" required>
+            <input type="number" class="campo" name="altura" id="altura" step="0.01" min="0.1" max="10" placeholder="Insira sua altura em m. Ex: 1.68" required>
             <!-- REGEXP -->
 
             <label for="peso">Peso: </label>
-            <input type="number" name="peso" id="peso" step="0.01" min="0.1" max="300" placeholder="Insira seu peso em Kg. Ex: 60" required>
+            <input type="number" class="campo" name="peso" id="peso" step="0.01" min="0.1" max="300" placeholder="Insira seu peso em Kg. Ex: 60" required>
 
             <div class="linha-botoes">
                 <!-- <input type="reset" value="Limpar"> -->
-                <button type="button">Limpar</button>
+                <button type="button" onclick="limparFormulario()">Limpar</button>
                 <button type="button" onclick="calcular()">Calcular</button>
                 
             </div>
@@ -42,7 +42,9 @@
                 <th>Situação</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="corpo-tabela">
+            
+        </tbody>
     </table>
 </body>
 </html>

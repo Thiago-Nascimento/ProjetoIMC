@@ -20,11 +20,13 @@ function calcular() {
         console.log(situacao)
 
         // Registrar Usuario em uma lista
-
+        registrarUsuario(nome, altura, peso, imc, situacao);
         
         // Gerar template, preencher a tabela
+        criarTemplate()
 
         // Limpar o form
+        limparFormulario()
     } else {
         window.alert("Por favor preencha todos os campos!")        
     }
@@ -81,8 +83,41 @@ function registrarUsuario(_nome, _altura, _peso, _imc, _situacao) {
     }
 
     listaDeUsuarios.push(pessoa);
+    console.log(listaDeUsuarios);
 }
 
 function criarTemplate() {
+    let tabela = document.getElementById("corpo-tabela");
+    
+    let template = '';
 
+    for (let index = 0; index < listaDeUsuarios.length; index++) {
+        const pessoa = listaDeUsuarios[index];
+
+        template += `<tr>
+            <td>${pessoa.nome}</td>
+            <td>${pessoa.altura}</td>
+            <td>${pessoa.peso}</td>
+            <td>${pessoa.imc}</td>
+            <td>${pessoa.situacao}</td>
+        </tr>`;       
+
+        tabela.innerHTML = template;        
+    }
 }
+
+function limparFormulario() {
+    // document.getElementById("nome").value = "";
+    // document.getElementsByName("altura")[0].value = "";
+    // document.querySelector("#peso").value = ""
+
+    let listaCampos = document.getElementsByClassName("campo");
+
+    for (let index = 0; index < listaCampos.length; index++) {
+        listaCampos[index].value = "";        
+    }
+}
+
+// function mascara() {
+    
+// }'

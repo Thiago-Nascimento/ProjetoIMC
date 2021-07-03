@@ -37,6 +37,11 @@ h1 {
     padding: 25px;
 }
 
+.campo:focus {
+    border: solid 2px #f6d6a8;
+    background-color: #F4EADE;
+}
+
 .formulario input {
     height: 35px;
     font-family: 'Montserrat';
