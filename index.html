@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <h1>Cadastro IMC >></h1>
+    <form action="" class="formulario">
+        <fieldset class="campos-form">
+            <legend>Cadastro</legend>
+
+            <label for="nome">Nome completo: </label>
+            <input type="text" name="nome" id="nome" placeholder="Nome..." required>
+
+            <label for="altura">Altura: </label>
+            <input type="number" name="altura" id="altura" step="0.01" min="0.1" max="10" placeholder="Insira sua altura em m. Ex: 1.68" required>
+            <!-- REGEXP -->
+
+            <label for="peso">Peso: </label>
+            <input type="number" name="peso" id="peso" step="0.01" min="0.1" max="300" placeholder="Insira seu peso em Kg. Ex: 60" required>
+
+            <div class="linha-botoes">
+                <!-- <input type="reset" value="Limpar"> -->
+                <button type="button">Limpar</button>
+                <button type="button" onclick="calcular()">Calcular</button>
+                
+            </div>
+        </fieldset>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>IMC</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
