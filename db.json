@@ -1,0 +1,12 @@
+{
+  "pessoas": [
+    {
+      "id": 1,
+      "nome": "Thiago",
+      "altura": 1.78,
+      "peso": 67,
+      "imc": 21,
+      "situacao": "Peso Normal"
+    }
+  ]
+}

@@ -29,10 +29,7 @@ function calcular() {
         limparFormulario()
     } else {
         window.alert("Por favor preencha todos os campos!")        
-    }
-
-
-    
+    }    
 }
 
 function validarForm(campoNome, campoAltura, campoPeso) {
@@ -73,17 +70,26 @@ function gerarSituacao(imc) {
     }
 }
 
-function registrarUsuario(_nome, _altura, _peso, _imc, _situacao) {
+async function registrarUsuario(_nome, _altura, _peso, _imc, _situacao) {
     let pessoa = {
         nome: _nome,
         altura: _altura,
-        peso: _peso,
-        imc: _imc,
+        peso: _peso.toFixed(2),
+        imc: _imc.toFixed(2),
         situacao: _situacao
-    }
+    }   
+    
+    const response = await fetch("http://localhost:3000/pessoas", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pessoa)
+    });
 
-    listaDeUsuarios.push(pessoa);
-    console.log(listaDeUsuarios);
+    listaDeUsuarios = [] 
+    carregarLista()
 }
 
 function criarTemplate() {
@@ -118,6 +124,17 @@ function limparFormulario() {
     }
 }
 
-// function mascara() {
-    
-// }'
+const carregarLista = async () => {
+    const res = await fetch("http://localhost:3000/pessoas")
+    const pessoas = await res.json();
+
+    console.log(pessoas)
+
+    pessoas.forEach(element => {
+        listaDeUsuarios.push(element);
+    });
+
+    criarTemplate();
+}
+
+window.addEventListener('DOMContentLoaded', () => carregarLista())
